@@ -43,6 +43,12 @@ namespace DTT.MinigameBase.LevelSelect
         /// The current level the user is playing.
         /// </summary>
         public override int CurrentLevel => _currentLevel;
+
+        /// <summary>
+        /// Sets the current level the user is playing.
+        /// </summary>
+        /// <param name="levelNumber">Level number to set as current.</param>
+        protected void SetCurrentLevel(int levelNumber) => _currentLevel = levelNumber;
         
         /// <summary>
         /// The current level the user is playing.
@@ -106,7 +112,7 @@ namespace DTT.MinigameBase.LevelSelect
         /// <param name="levelData">The data of the level that was selected.</param>
         protected virtual void OnLevelSelected(LevelData levelData)
         {
-            _currentLevel = levelData.levelNumber;
+            SetCurrentLevel(levelData.levelNumber);
             _minigame.StartGame(GetConfig(levelData.levelNumber));
             HideLevelSelect();
         }

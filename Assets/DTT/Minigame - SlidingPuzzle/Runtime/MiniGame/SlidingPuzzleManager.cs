@@ -151,6 +151,7 @@ namespace DTT.MiniGame.SlidingPuzzle
             _slideAmount = 0;
             _hasSlid = false;
             _isGameActive = true;
+            _isPaused = false;
 
             _timer.Begin();
             _timer.Pause();
