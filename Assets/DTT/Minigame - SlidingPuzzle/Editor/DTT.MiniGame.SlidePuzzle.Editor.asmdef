@@ -1,0 +1,19 @@
+{
+    "name": "DTT.MiniGame.SlidePuzzle.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ab9331d224ba9b049833c9ce921f9914",
+        "GUID:b5e078f64d95bba4a8ba03b5b4940114"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

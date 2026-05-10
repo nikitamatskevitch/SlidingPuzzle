@@ -1,0 +1,11 @@
+﻿{
+  "title": "SlidingPuzzle: get started quickly",
+  "text": "[The minigame can be imported into a project. The necessary information is stored in a custom ScriptableObject LevelData. Once the config file has been set up, create an empty object in the scene and add the SlidingPuzzleManager MonoBehaviour to it with the level data file.][Want to dive deeper? Take a look at our documentation:][l]",
+  "links": [
+    {
+      "text": "Open documentation",
+      "url": "Documentation.pdf",
+      "inline": false
+    }
+  ]
+}
