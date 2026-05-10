@@ -80,7 +80,7 @@ PlayerSettings:
   androidPredictiveBackSupport: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 1
+  runInBackground: 0
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -163,7 +163,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.Slidingpuzzle
+    Standalone: com.DefaultCompany.SlidingPuzzle
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -609,17 +609,17 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 16
-  webGLExceptionSupport: 1
+  webGLExceptionSupport: 2
   webGLNameFilesAsHashes: 0
   webGLShowDiagnostics: 0
   webGLDataCaching: 1
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Minimal
+  webGLTemplate: PROJECT:YandexGames
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 2
+  webGLCompressionFormat: 0
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -632,7 +632,17 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    WebGL: PUBLISHING_TOOLS_ASSET_STORE_RELEASE;MINIGAME_-_SLIDINGPUZZLE_ASSET_STORE_RELEASE
+    Android: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    LinuxHeadlessSimulation: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    Nintendo Switch: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    PS4: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    PS5: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    Standalone: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    WebGL: PUBLISHING_TOOLS_ASSET_STORE_RELEASE;MINIGAME_-_SLIDINGPUZZLE_ASSET_STORE_RELEASE;PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    Windows Store Apps: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    XboxOne: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    iPhone: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
+    tvOS: PLUGIN_YG_2;YandexGamesPlatform_yg;TMP_YG2;RU_YG2;NJSON_YG2;InterstitialAdv_yg;Localization_yg;AutoTranslateLangs_yg;Review_yg;GameLabel_yg
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -647,6 +657,7 @@ PlayerSettings:
     PS5: 1
     QNX: 1
     Stadia: 1
+    Standalone: 4
     VisionOS: 1
     WebGL: 1
     Windows Store Apps: 1

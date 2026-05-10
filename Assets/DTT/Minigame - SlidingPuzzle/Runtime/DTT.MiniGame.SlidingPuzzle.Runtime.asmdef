@@ -1,5 +1,6 @@
 {
     "name": "DTT.MiniGame.SlidingPuzzle.Runtime",
+    "rootNamespace": "",
     "references": [
         "GUID:40110409d6f32d94c8a49de52995a651"
     ],
