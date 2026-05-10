@@ -27,6 +27,7 @@ namespace DTT.MiniGame.SlidingPuzzle
             var minigame = FindObjectOfType<SlidingPuzzleManager>();
             if (minigame == null) return;
 
+            SetCurrentLevel(nextLevelNumber);
             minigame.ClearLevel();
             minigame.StartGame(GetConfig(nextLevelNumber));
         }
