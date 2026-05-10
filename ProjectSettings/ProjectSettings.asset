@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 00000000000000000000000000000000
+  productGUID: cc25f67b659649b49a7ef4d27544a826
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -744,7 +744,7 @@ PlayerSettings:
   cloudProjectId: afeeb923-2503-4043-9b4d-06d9ddf24c0d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
+  projectName: SlidingPuzzle
   organizationId: nikita-matskevitch-as-publisher
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
