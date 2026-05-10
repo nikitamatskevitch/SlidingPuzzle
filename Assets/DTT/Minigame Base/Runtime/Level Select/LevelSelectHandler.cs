@@ -125,18 +125,22 @@ namespace DTT.MinigameBase.LevelSelect
         protected virtual void OnMinigameFinished(TResult result)
         {
             float score = CalculateScore(result);
-            int index = _levelSelect.SelectedLevel.LevelNumber - 1;
+
+            int levelNumber = CurrentLevel;
+            int index = levelNumber - 1;
+
+            if (index < 0 || index >= _levelDatabase.Data.Count)
+                return;
 
             if (_levelDatabase.Data[index].score < score)
-            _levelDatabase.SetScore(index, score);
+                _levelDatabase.SetScore(index, score);
 
-            if(_levelSelect.SelectedLevel.LevelNumber < _levelDatabase.Data.Count)
-                _levelDatabase.SetLocked(_levelSelect.SelectedLevel.LevelNumber, false);
+            if (levelNumber < _levelDatabase.Data.Count)
+                _levelDatabase.SetLocked(levelNumber, false);
 
-            // Save all the progress in the file structure before population.
             _levelSelect.Populate(_levelDatabase);
-            
-            if(_returnToLevelSelectOnFinish)
+
+            if (_returnToLevelSelectOnFinish)
                 ShowLevelSelect();
         }
 
