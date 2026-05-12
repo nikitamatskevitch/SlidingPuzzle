@@ -1,0 +1,3 @@
+﻿Build path: C:/Users/PC/Documents/GitHub/SlidingPuzzle/yandex build
+Build number: 0
+PluginYG version: 2.0091
