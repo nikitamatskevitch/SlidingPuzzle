@@ -5,6 +5,28 @@ using UnityEngine.UI;
 
 namespace DTT.MinigameBase.UI
 {
+    public enum GameLanguage
+    {
+        Russian = 0,
+        English = 1,
+        Turkish = 2
+    }
+
+    public static class GameLanguageStorage
+    {
+        public const string PlayerPrefsKey = "game_language";
+
+        public static GameLanguage CurrentLanguage
+        {
+            get => (GameLanguage)PlayerPrefs.GetInt(PlayerPrefsKey, (int)GameLanguage.Russian);
+            set
+            {
+                PlayerPrefs.SetInt(PlayerPrefsKey, (int)value);
+                PlayerPrefs.Save();
+            }
+        }
+    }
+
     /// <summary>
     /// Handles the standardized popup in the game.
     /// </summary>
@@ -122,8 +144,15 @@ namespace DTT.MinigameBase.UI
         /// </summary>
         public void SetTitleToPaused()
         {
-            _titleText.text = "ПАУЗА";
-            _titleBackdropText.text = "ПАУЗА";
+            string title = GameLanguageStorage.CurrentLanguage switch
+            {
+                GameLanguage.English => "PAUSE",
+                GameLanguage.Turkish => "DURAKLAT",
+                _ => "ПАУЗА"
+            };
+
+            _titleText.text = title;
+            _titleBackdropText.text = title;
         }
 
         /// <summary>
