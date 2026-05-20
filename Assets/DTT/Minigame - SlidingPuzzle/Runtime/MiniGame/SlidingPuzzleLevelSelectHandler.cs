@@ -2,6 +2,7 @@ using DTT.MinigameBase.UI;
 using UnityEngine;
 using DTT.MinigameBase.LevelSelect;
 using UnityEngine.UI;
+using System;
 
 namespace DTT.MiniGame.SlidingPuzzle
 {
@@ -57,17 +58,7 @@ namespace DTT.MiniGame.SlidingPuzzle
         private void ApplyChooseLevelText(GameLanguage language)
         {
             if (_chooseLevelText == null)
-            {
-                Text[] allTexts = FindObjectsOfType<Text>(true);
-                foreach (Text text in allTexts)
-                {
-                    if (text.text == "Выберите уровень" || text.text == "Choose level" || text.text == "Seviye seçin")
-                    {
-                        _chooseLevelText = text;
-                        break;
-                    }
-                }
-            }
+                _chooseLevelText = FindChooseLevelText();
 
             if (_chooseLevelText == null)
                 return;
@@ -78,6 +69,36 @@ namespace DTT.MiniGame.SlidingPuzzle
                 GameLanguage.Turkish => "Seviye seçin",
                 _ => "Выберите уровень"
             };
+        }
+
+
+        private Text FindChooseLevelText()
+        {
+            Transform knownPath = transform.root.Find("Level Select/Container/Banner/Text");
+            if (knownPath != null && knownPath.TryGetComponent(out Text knownText))
+                return knownText;
+
+            Text[] allTexts = FindObjectsOfType<Text>(true);
+            foreach (Text text in allTexts)
+            {
+                if (IsChooseLevelText(text.text))
+                    return text;
+            }
+
+            return null;
+        }
+
+        private bool IsChooseLevelText(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+
+            string normalized = value.Trim();
+
+            return normalized.Equals("Выберите уровень", StringComparison.OrdinalIgnoreCase)
+                || normalized.Equals("ВЫБЕРИТЕ УРОВЕНЬ", StringComparison.OrdinalIgnoreCase)
+                || normalized.Equals("Choose level", StringComparison.OrdinalIgnoreCase)
+                || normalized.Equals("Seviye seçin", StringComparison.OrdinalIgnoreCase);
         }
 
         private void ApplyAutocompleteButtonSprite(GameLanguage language)
