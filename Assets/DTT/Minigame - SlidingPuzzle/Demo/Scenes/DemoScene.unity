@@ -363,6 +363,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39a6106a86eb0f84ba8cedf29e9fc324, type: 2}
   - {fileID: 11400000, guid: 07cb91a4940950741ac0e409fad062ac, type: 2}
   - {fileID: 11400000, guid: 3f1369e2aea5a3c46a09c3648141c334, type: 2}
+  _autocompleteButtonImage: {fileID: 1762119499}
+  _autocompleteRussianSprite: {fileID: 21300000, guid: 5a417c1a9dfd4e743ad3f4eb7924539a, type: 3}
+  _autocompleteEnglishSprite: {fileID: 21300000, guid: 900d40de45684784893632f2a924dcb4, type: 3}
+  _autocompleteTurkishSprite: {fileID: 21300000, guid: 981ccb1ff1933fe4a8f42ad5e9b01c2e, type: 3}
+  _chooseLevelText: {fileID: 0}
 --- !u!1 &394128634
 GameObject:
   m_ObjectHideFlags: 0
