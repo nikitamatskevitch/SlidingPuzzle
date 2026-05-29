@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using DTT.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,9 @@ namespace DTT.MinigameBase.UI
     {
         public const string PlayerPrefsKey = "game_language";
 
+        private const string YandexGamesTypeName = "YG.YG2, Assembly-CSharp";
+        private const string YandexGamesLanguageFieldName = "lang";
+
         public static GameLanguage CurrentLanguage
         {
             get => (GameLanguage)PlayerPrefs.GetInt(PlayerPrefsKey, (int)GameLanguage.Russian);
@@ -24,6 +28,49 @@ namespace DTT.MinigameBase.UI
                 PlayerPrefs.SetInt(PlayerPrefsKey, (int)value);
                 PlayerPrefs.Save();
             }
+        }
+
+        public static GameLanguage StartupLanguage
+        {
+            get
+            {
+                if (TryGetPlatformLanguage(out GameLanguage platformLanguage))
+                    return platformLanguage;
+
+                return CurrentLanguage;
+            }
+        }
+
+        public static bool TryGetPlatformLanguage(out GameLanguage language)
+        {
+            language = GameLanguage.Russian;
+
+            Type yandexGamesType = Type.GetType(YandexGamesTypeName);
+            FieldInfo languageField = yandexGamesType?.GetField(
+                YandexGamesLanguageFieldName,
+                BindingFlags.Public | BindingFlags.Static);
+
+            string languageCode = languageField?.GetValue(null) as string;
+            if (string.IsNullOrWhiteSpace(languageCode))
+                return false;
+
+            language = ToGameLanguage(languageCode);
+            return true;
+        }
+
+        private static GameLanguage ToGameLanguage(string languageCode)
+        {
+            string normalizedLanguageCode = languageCode.Trim().ToLowerInvariant();
+            int separatorIndex = normalizedLanguageCode.IndexOfAny(new[] { '-', '_' });
+            if (separatorIndex >= 0)
+                normalizedLanguageCode = normalizedLanguageCode.Substring(0, separatorIndex);
+
+            return normalizedLanguageCode switch
+            {
+                "ru" => GameLanguage.Russian,
+                "tr" => GameLanguage.Turkish,
+                _ => GameLanguage.English
+            };
         }
     }
 
@@ -160,8 +207,15 @@ namespace DTT.MinigameBase.UI
         /// </summary>
         public void SetTitleToFinished()
         {
-            _titleText.text = "ПОБЕДА!";
-            _titleBackdropText.text = "ПОБЕДА!";
+            string title = GameLanguageStorage.CurrentLanguage switch
+            {
+                GameLanguage.English => "VICTORY!",
+                GameLanguage.Turkish => "ZAFER!",
+                _ => "ПОБЕДА!"
+            };
+
+            _titleText.text = title;
+            _titleBackdropText.text = title;
         }
 
         /// <summary>

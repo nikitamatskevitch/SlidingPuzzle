@@ -25,7 +25,7 @@ namespace DTT.MiniGame.SlidingPuzzle
                 gameUI.NextLevelRequested += LoadNextLevel;
 
             SetupLanguageButtons();
-            ApplyLanguage(GameLanguageStorage.CurrentLanguage);
+            ApplyLanguage(GameLanguageStorage.StartupLanguage);
         }
 
         private void SetupLanguageButtons()
