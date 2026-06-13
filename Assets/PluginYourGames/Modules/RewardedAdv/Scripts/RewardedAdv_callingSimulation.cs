@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using UnityEngine;
-using YG.Insides;
 
-namespace YG
+namespace YG.Insides
 {
     public partial class AdvCallingSimulation
     {
@@ -16,6 +16,7 @@ namespace YG
         {
             yield return new WaitForSecondsRealtime(YG2.infoYG.Simulation.loadAdv);
             YGInsides.OpenRewardedAdv();
+            DrawScreen(new Color(0, 1, 0, 0.5f));
             yield return new WaitForSecondsRealtime(duration);
             YGInsides.RewardAdv(id);
             YGInsides.CloseRewardedAdv();
@@ -23,3 +24,4 @@ namespace YG
         }
     }
 }
+#endif
